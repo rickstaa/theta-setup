@@ -1,0 +1,29 @@
+version: "3.8"
+
+name: theta-edge-node
+
+services:
+  theta-edge-node:
+    image: thetalabsorg/edgelauncher_mainnet:latest
+    container_name: theta-edge-node
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:15888:15888"
+      - "127.0.0.1:17888:17888"
+      - "127.0.0.1:17935:17935"
+    environment:
+      - EDGELAUNCHER_CONFIG_PATH=/edgelauncher/data/mainnet
+      - PASSWORD=/run/secrets/theta_password
+    volumes:
+      - ~/.edgelauncher:/edgelauncher/data/mainnet
+    tty: true
+    secrets:
+      - theta_password
+
+networks:
+  default:
+    external:
+      name: theta_edge_node
+secrets:
+  theta_password:
+    file: ./.theta_password

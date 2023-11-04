@@ -35,7 +35,7 @@ Welcome to the heart of my Theta edge node setup! This repository houses the doc
 5. Initiate the Theta edge node using Docker Compose:
 
    ```bash
-   sudo docker compose up -d
+   sudo docker compose up
    ```
 
 6. Confirm the edge node is operational by executing `docker ps`.

@@ -22,8 +22,8 @@ services:
 
 networks:
   default:
-    external:
       name: theta_edge_node
+
 secrets:
   theta_password:
-    file: ./.theta_password
+    file: ./.theta_password.txt
